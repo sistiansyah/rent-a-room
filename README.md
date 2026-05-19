@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Workspace Builder – monis.rent Coding Challenge
 
-## Getting Started
+This project is an interactive workspace configurator built with Next.js, React, TypeScript, and React-Konva. The goal of the application is to provide users with a more engaging experience when renting office equipment by allowing them to visually design their own workspace setup instead of browsing through a traditional product catalog.
 
-First, run the development server:
+## Approach
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+I approached this challenge by focusing on user interaction and simplicity. Instead of building a static e-commerce page, I wanted the experience to feel more visual and playful. Users can select furniture and accessories, place them into a workspace canvas, drag items around freely, and customize their setup before checkout.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To keep the project maintainable, I separated the application into:
+- Product & cart business logic
+- Workspace rendering logic
+- Reusable UI components
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+I also implemented product rules such as:
+- Single-instance items (Desk / Chair)
+- Multi-instance items (Accessories / Monitor)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This helped simulate more realistic workspace behavior.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Tech Stack & Choices
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Frontend
+- Next.js
+- React
+- TypeScript
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+I chose Next.js because it provides a modern React architecture with a clean project structure and scalable routing system.
 
-## Deploy on Vercel
+### Canvas Rendering
+- React-Konva / Konva
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+I used React-Konva to create the interactive workspace canvas because it provides:
+- Drag-and-drop support
+- Canvas-based rendering
+- Smooth object manipulation
+- Easy export to image
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This made it much easier to build an interactive configurator experience.
+
+### Styling
+- Tailwind CSS
+- Plain CSS
+
+I used Tailwind CSS for layouting and utility styling, while still using plain CSS in several areas where custom component styling felt faster and more maintainable during development.
+
+---
+
+## What I Would Improve With More Time
+
+If given more time, I would improve the project by adding:
+
+- Better object snapping & alignment guides
+- Zoom and pan functionality
+- Layer ordering (bring forward / send backward)
+- Rotation support
+- Persistent storage / backend integration
+- Real product APIs
+- Mobile optimization for drag interactions
+- Improved export quality and workspace templates
+- Better workspace scaling with realistic proportions
+
+I would also refactor several state management areas to further separate business logic from visual workspace state as the project grows.
+
+---
